@@ -1,0 +1,70 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While processing text tag {color = #000000} in u'{color = #000000}\u6d3b\u52a8'.:
+  File "game/script.rpy", line 4, in script
+    call screen planner_test
+  File "renpy/common/000statements.rpy", line 569, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+Exception: Unknown text tag u'color = #000000'
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 4, in script
+    call screen planner_test
+  File "/Applications/renpy-7.4.11-sdk/renpy/ast.py", line 2015, in execute
+    self.call("execute")
+  File "/Applications/renpy-7.4.11-sdk/renpy/ast.py", line 2003, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "/Applications/renpy-7.4.11-sdk/renpy/statements.py", line 278, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 569, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "/Applications/renpy-7.4.11-sdk/renpy/exports.py", line 3136, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "/Applications/renpy-7.4.11-sdk/renpy/ui.py", line 298, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/Applications/renpy-7.4.11-sdk/renpy/display/core.py", line 3325, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs)
+  File "/Applications/renpy-7.4.11-sdk/renpy/display/core.py", line 3839, in interact_core
+    self.draw_screen(root_widget, fullscreen_video, (not fullscreen_video) or video_frame_drawn)
+  File "/Applications/renpy-7.4.11-sdk/renpy/display/core.py", line 2565, in draw_screen
+    renpy.config.screen_height,
+  File "render.pyx", line 492, in renpy.display.render.render_screen
+  File "render.pyx", line 263, in renpy.display.render.render
+  File "/Applications/renpy-7.4.11-sdk/renpy/display/layout.py", line 826, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 263, in renpy.display.render.render
+  File "/Applications/renpy-7.4.11-sdk/renpy/display/layout.py", line 826, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 263, in renpy.display.render.render
+  File "/Applications/renpy-7.4.11-sdk/renpy/display/layout.py", line 826, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 263, in renpy.display.render.render
+  File "/Applications/renpy-7.4.11-sdk/renpy/display/screen.py", line 688, in render
+    child = renpy.display.render.render(self.child, w, h, st, at)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 263, in renpy.display.render.render
+  File "/Applications/renpy-7.4.11-sdk/renpy/display/layout.py", line 826, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 263, in renpy.display.render.render
+  File "/Applications/renpy-7.4.11-sdk/renpy/display/layout.py", line 987, in render
+    surf = render(d, rw, height - y, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 263, in renpy.display.render.render
+  File "/Applications/renpy-7.4.11-sdk/renpy/text/text.py", line 2096, in render
+    virtual_layout = Layout(self, width, height, renders, drawable_res=False, size_only=True)
+  File "/Applications/renpy-7.4.11-sdk/renpy/text/text.py", line 610, in __init__
+    self.paragraphs = self.segment(text.tokens, style, renders, text)
+  File "/Applications/renpy-7.4.11-sdk/renpy/text/text.py", line 1259, in segment
+    raise Exception("Unknown text tag %r" % text)
+Exception: Unknown text tag u'color = #000000'
+
+Darwin-21.2.0-x86_64-i386-64bit
+Ren'Py 7.4.11.2266
+OnlyForTest 1.0
+Tue Mar  8 15:21:51 2022
