@@ -1,4 +1,4 @@
-Mon Apr  4 22:49:12 2022
+Tue Apr  5 13:23:17 2022
 Darwin-21.4.0-x86_64-i386-64bit
 Ren'Py 7.4.11.2266
  
@@ -29,11 +29,11 @@ Load screen analysis took 0.00s
 Analyze screens took 0.01s
 Save screen analysis took 0.02s
 Prepare screens took 0.04s
-Save pyanalysis. took 0.00s
+Save pyanalysis. took 0.02s
 Save bytecode. took 0.01s
 Running _start took 0.00s
 Performance test:
-Interface start took 0.14s
+Interface start took 0.21s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1512, 982)

@@ -1,37 +1,82 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 18, in script call
+  File "game/script.rpy", line 74, in script call
     call test_cal
-  File "game/script.rpy", line 34, in script
-    "测试读取年：[cal_dic]"
-Exception: Empty text tag in u"\u6d4b\u8bd5\u8bfb\u53d6\u5e74\uff1a{'Y14': {}, 'Year': {}}".
+  File "game/script.rpy", line 81, in script
+    call screen test_frame
+  File "renpy/common/000statements.rpy", line 569, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "game/script.rpy", line 85, in execute
+    screen test_frame():
+  File "game/script.rpy", line 85, in execute
+    screen test_frame():
+  File "game/script.rpy", line 86, in execute
+    frame:
+  File "game/script.rpy", line 143, in execute
+    vbox:
+  File "game/script.rpy", line 147, in execute
+    for i in range(1, 5):
+  File "game/script.rpy", line 148, in execute
+    python:
+  File "game/script.rpy", line 151, in <module>
+    act_id = cal_dic[year_id]['SUN'][selected_month_id][week_str]
+KeyError: u'SUN'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 18, in script call
+  File "game/script.rpy", line 74, in script call
     call test_cal
-  File "game/script.rpy", line 34, in script
-    "测试读取年：[cal_dic]"
-  File "/Applications/renpy-7.4.11-sdk/renpy/ast.py", line 721, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-  File "/Applications/renpy-7.4.11-sdk/renpy/exports.py", line 1419, in say
-    who(what, *args, **kwargs)
-  File "/Applications/renpy-7.4.11-sdk/renpy/character.py", line 1249, in __call__
-    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
-  File "/Applications/renpy-7.4.11-sdk/renpy/character.py", line 901, in do_display
-    **display_args)
-  File "/Applications/renpy-7.4.11-sdk/renpy/character.py", line 628, in display_say
-    what_text.update()
-  File "/Applications/renpy-7.4.11-sdk/renpy/text/text.py", line 1793, in update
-    tokens = self.tokenize(text)
-  File "/Applications/renpy-7.4.11-sdk/renpy/text/text.py", line 2267, in tokenize
-    tokens.extend(textsupport.tokenize(i))
-  File "textsupport.pyx", line 105, in renpy.text.textsupport.tokenize
-Exception: Empty text tag in u"\u6d4b\u8bd5\u8bfb\u53d6\u5e74\uff1a{'Y14': {}, 'Year': {}}".
+  File "game/script.rpy", line 81, in script
+    call screen test_frame
+  File "/Applications/renpy-7.4.11-sdk/renpy/ast.py", line 2015, in execute
+    self.call("execute")
+  File "/Applications/renpy-7.4.11-sdk/renpy/ast.py", line 2003, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "/Applications/renpy-7.4.11-sdk/renpy/statements.py", line 278, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 569, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "/Applications/renpy-7.4.11-sdk/renpy/exports.py", line 3136, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "/Applications/renpy-7.4.11-sdk/renpy/ui.py", line 298, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/Applications/renpy-7.4.11-sdk/renpy/display/core.py", line 3325, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs)
+  File "/Applications/renpy-7.4.11-sdk/renpy/display/core.py", line 3737, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "/Applications/renpy-7.4.11-sdk/renpy/display/core.py", line 568, in visit_all
+    d.visit_all(callback, seen)
+  File "/Applications/renpy-7.4.11-sdk/renpy/display/core.py", line 568, in visit_all
+    d.visit_all(callback, seen)
+  File "/Applications/renpy-7.4.11-sdk/renpy/display/core.py", line 568, in visit_all
+    d.visit_all(callback, seen)
+  File "/Applications/renpy-7.4.11-sdk/renpy/display/screen.py", line 436, in visit_all
+    callback(self)
+  File "/Applications/renpy-7.4.11-sdk/renpy/display/core.py", line 3737, in <lambda>
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "/Applications/renpy-7.4.11-sdk/renpy/display/screen.py", line 447, in per_interact
+    self.update()
+  File "/Applications/renpy-7.4.11-sdk/renpy/display/screen.py", line 637, in update
+    self.screen.function(**self.scope)
+  File "game/script.rpy", line 85, in execute
+    screen test_frame():
+  File "game/script.rpy", line 85, in execute
+    screen test_frame():
+  File "game/script.rpy", line 86, in execute
+    frame:
+  File "game/script.rpy", line 143, in execute
+    vbox:
+  File "game/script.rpy", line 147, in execute
+    for i in range(1, 5):
+  File "game/script.rpy", line 148, in execute
+    python:
+  File "game/script.rpy", line 151, in <module>
+    act_id = cal_dic[year_id]['SUN'][selected_month_id][week_str]
+KeyError: u'SUN'
 
 Darwin-21.4.0-x86_64-i386-64bit
 Ren'Py 7.4.11.2266
 test 1.0
-Mon Apr  4 22:41:48 2022
+Tue Apr  5 13:22:35 2022

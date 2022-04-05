@@ -1,0 +1,8 @@
+,,,,,,,,,,,,,,,,
+事件ID,背景线路,事件type,显示触发,被动触发,事件名称,事件详情,1name,1req,2name,2req,3name,3req,4name,4req,cost,reward
+test_event_resgister,general,register,1,0,报名测试事件,报名详情,,,,,,,,,50,
+test_event,general,conference,1,0,测试事件,测试事件详情,ab_brave,100,,,,,,,,3000
+test_event_poor,poor,main,1,0,贫穷测试事件,贫穷测试事件详情,ab_commu,100,ab_brave,100,,,,,,
+test_event_rich,rich,main,0,0,富裕测试事件,富裕测试事件详情,ab_logic,100,ab_crit,100,,,,,,
+test_event_nor,normal,,0,0,中产测试事件,中产测试事件详情,ab_crit,100,ab_logic,100,,,,,,
+test_event_general,general,,0,0,共通事件,共通事件详情,ab_crit,100,ab_logic,100,,,,,,

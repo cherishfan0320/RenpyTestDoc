@@ -2,9 +2,10 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 12: u'pause' is not a keyword argument or valid child for the screen statement.
-    pause 1
-         ^
+File "game/script.rpy", line 50: invalid syntax
+    global year_id = "Y14"
+                    ^
+    
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Fri Mar 18 10:23:30 2022
+Tue Apr  5 12:59:37 2022
