@@ -1,26 +1,30 @@
+init python:
+    import csv
+
+    # 周选择dictioanry
+    def creat_activity_dic(excelName):
+        dict_from_csv = {}
+        with open(renpy.loader.transfn(excelName),"r") as inp:
+            reader = csv.reader(inp)
+            for rows in reader:
+                dict_from_csv[rows[0]] = {'W1': rows[1], 'W2': rows[2], 'W3': rows[3],'W4': rows[4]}
+        return dict_from_csv
 
 
 label start:
-    $ text_move = 1
     "test"
-    call show_one_text_trans
+    call test_cal
     "test"
     return
 
-label show_one_text_trans:
-    # show the text prompt with movement
-    show screen test_text_trans
-    pause 1
-    # dissolve
-    $Hide("test_text_trans", transition=Dissolve(1.0))()
 
-screen test_text_trans:
-# need to get variable to have the text
-    text "add skill" at add_skill
+label test_cal:
+    python:
+        cal_address = "csv-test.csv"
+        cal_dic = creat_activity_dic(cal_address) # create dictionary name as cal_dic
+        # "[cal_dic]"
+        cal_test_item = cal_dic["M8"]["W4"]
 
-transform add_skill:
-    easein 0.5
-    xcenter 0.5
-    ycenter 0.5
-    linear 1.0 yalign 0.3
-    # repeat
+    # 成功读取specific event
+    "测试读取：[cal_test_item]"
+    return

@@ -1,28 +1,37 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 6, in script
-    if text_move == 0:
-  File "game/script.rpy", line 6, in <module>
-    if text_move == 0:
-NameError: name 'text_move' is not defined
+  File "game/script.rpy", line 18, in script call
+    call test_cal
+  File "game/script.rpy", line 34, in script
+    "测试读取年：[cal_dic]"
+Exception: Empty text tag in u"\u6d4b\u8bd5\u8bfb\u53d6\u5e74\uff1a{'Y14': {}, 'Year': {}}".
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 6, in script
-    if text_move == 0:
-  File "/Applications/renpy-7.4.11-sdk/renpy/ast.py", line 1898, in execute
-    if renpy.python.py_eval(condition):
-  File "/Applications/renpy-7.4.11-sdk/renpy/python.py", line 2276, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "/Applications/renpy-7.4.11-sdk/renpy/python.py", line 2269, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 6, in <module>
-    if text_move == 0:
-NameError: name 'text_move' is not defined
+  File "game/script.rpy", line 18, in script call
+    call test_cal
+  File "game/script.rpy", line 34, in script
+    "测试读取年：[cal_dic]"
+  File "/Applications/renpy-7.4.11-sdk/renpy/ast.py", line 721, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "/Applications/renpy-7.4.11-sdk/renpy/exports.py", line 1419, in say
+    who(what, *args, **kwargs)
+  File "/Applications/renpy-7.4.11-sdk/renpy/character.py", line 1249, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
+  File "/Applications/renpy-7.4.11-sdk/renpy/character.py", line 901, in do_display
+    **display_args)
+  File "/Applications/renpy-7.4.11-sdk/renpy/character.py", line 628, in display_say
+    what_text.update()
+  File "/Applications/renpy-7.4.11-sdk/renpy/text/text.py", line 1793, in update
+    tokens = self.tokenize(text)
+  File "/Applications/renpy-7.4.11-sdk/renpy/text/text.py", line 2267, in tokenize
+    tokens.extend(textsupport.tokenize(i))
+  File "textsupport.pyx", line 105, in renpy.text.textsupport.tokenize
+Exception: Empty text tag in u"\u6d4b\u8bd5\u8bfb\u53d6\u5e74\uff1a{'Y14': {}, 'Year': {}}".
 
 Darwin-21.4.0-x86_64-i386-64bit
 Ren'Py 7.4.11.2266
 test 1.0
-Fri Mar 18 10:22:19 2022
+Mon Apr  4 22:41:48 2022

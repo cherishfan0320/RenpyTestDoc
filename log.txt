@@ -1,4 +1,4 @@
-Fri Mar 18 10:27:03 2022
+Mon Apr  4 22:49:12 2022
 Darwin-21.4.0-x86_64-i386-64bit
 Ren'Py 7.4.11.2266
  
@@ -16,7 +16,7 @@ Loading analysis data took 0.01s
 Analyze and compile ATL took 0.00s
 Index archives took 0.00s
 Backing up script files to '/Users/cherishfan/Library/RenPy/backups/RenpyTestDoc':
-Dump and make backups. took 0.05s
+Dump and make backups. took 0.04s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
 Initial gc. took 0.01s
