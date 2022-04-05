@@ -50,9 +50,9 @@ init python:
     # create dics:
     # 创建日历
     cal_dic = {}
-    sat_cal_address = "sat-events.csv"
-    sun_cal_address = "sun-events.csv"
-    # 年份生成
+    sat_cal_address = "sat-events.csv" # 周六的csv - 关于支线和活动
+    sun_cal_address = "sun-events.csv" # 周日的csv - 关于主线，奖学金和考试
+    # 年份生成 - 年份，sat/sun，月份...
     cal_dic['Y14'] = creat_cal_dic(sat_cal_address,sun_cal_address) # create dictionary name as cal_dic
     # 创建活动索引
     act_label_address = "csv-act-test.csv"
@@ -71,6 +71,7 @@ init python:
 
     cal_text_size = 20
     week_str = "W1"
+    selected_act_id = '' # 目前选择的事件
 
 label start:
     "test"
@@ -78,27 +79,29 @@ label start:
     "test"
     return
 
-
+# 测试日历
 label test_cal:
-
     call screen test_frame
     return
 
 # screen, 目前先用frame来做这个calendar的背景
 screen test_frame():
     frame:
-        xsize 900
+        xsize 1000
         ysize 580
         xcenter 0.5
         ycenter 0.5
 
+        # title：年和月
+        $ month_txt = time_label_dic[selected_month_id]
         text "[year_txt], [month_txt]":
             size 30
             xcenter 0.5
             ycenter 0.1
 
-        # months, tabel of content:
+        #右侧的月份索引
         $ month_disp_lst = ['M8', 'M9', 'M10', 'M11', 'M12', 'M1', 'M2', 'M3', 'M4']
+
         vbox:
             xcenter 0.1
             ypos 0.25
@@ -112,11 +115,11 @@ screen test_frame():
                     ypos (10 + 15*i)
                     action SetVariable('selected_month_id', month_id)
 
-        # days
+        # 周六和周日的文字
         $ calendar_days = ['周六', '周日']
         hbox:
             ycenter 0.25
-            xcenter 0.4
+            xcenter 0.32
             for i in range(0, 2):
                 $cal_day_txt = calendar_days[i]
                 text "[cal_day_txt]" style "cal_text":
@@ -124,38 +127,67 @@ screen test_frame():
 
         # weeks and the displays
         vbox:
-            xcenter 0.25
+            xcenter 0.22
             for i in range(1, 5):
                 text "Week [i]" style "cal_text":
                     ypos (100 + 70*i)
 
-        # 测试周六display
+        # 周六display
         vbox:
-            xcenter 0.45
-            python:
-                disp_Sat = cal_dic[year_id]['Sat'][selected_month_id]
+            xcenter 0.37
             for i in range(1, 5):
                 python:
-                    # str_i = str(i)
                     week_str = 'W'+str(i)
                     act_id = cal_dic[year_id]['Sat'][selected_month_id][week_str]
                     act_txt = act_dic[act_id]['Act_name_txt']
-                text "[act_txt]" style "cal_text":
+                    # 确认这个是否可以被show在calendar上
+                    if act_dic[act_id]['Show'] == 0:
+                        act_txt = ''
+                textbutton "[act_txt]" style "cal_textbox":
                     ypos (100 + 70*i)
-        # 测试周日display
+                    action SetVariable('selected_act_id', act_id)
+        # 周日display
         vbox:
-            xcenter 0.7
-            python:
-                disp_Sat = cal_dic[year_id]['Sat'][selected_month_id]
+            xcenter 0.55
             for i in range(1, 5):
                 python:
-                    # str_i = str(i)
                     week_str = 'W'+str(i)
                     act_id = cal_dic[year_id]['Sun'][selected_month_id][week_str]
                     act_txt = act_dic[act_id]['Act_name_txt']
-                text "[act_txt]" style "cal_text":
+                    # 确认这个是否可以被show在calendar上
+                    if act_dic[act_id]['Show'] == 0:
+                        act_txt = ''
+                textbutton "[act_txt]" style "cal_textbox":
                     ypos (100 + 70*i)
+                    action SetVariable('selected_act_id', act_id)
 
+        # 右侧：事件详情
+        python:
+            action_title = act_dic[selected_act_id]['Act_name_txt'] #名称
+            action_info = act_dic[selected_act_id]['Act_info_txt'] #名称
+        text "[action_title]" style "cal_event_title"
+        text "[action_info]" style "cal_event_info"
+        text "能力需求" style "cal_event_req"
 
 style cal_text:
     size cal_text_size
+
+style cal_textbox:
+    size cal_text_size
+    xmaximum 150
+
+style cal_event_title:
+    size 30
+    xcenter 0.8
+    ycenter 0.25
+
+style cal_event_info:
+    size cal_text_size
+    xcenter 0.8
+    ycenter 0.45
+    xmaximum 200
+
+style cal_event_req:
+    size cal_text_size
+    xcenter 0.8
+    ycenter 0.7

@@ -1,34 +1,24 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 74, in script call
+  File "game/script.rpy", line 77, in script call
     call test_cal
-  File "game/script.rpy", line 81, in script
+  File "game/script.rpy", line 83, in script
     call screen test_frame
   File "renpy/common/000statements.rpy", line 569, in execute_call_screen
     store._return = renpy.call_screen(name, *args, **kwargs)
-  File "game/script.rpy", line 85, in execute
-    screen test_frame():
-  File "game/script.rpy", line 85, in execute
-    screen test_frame():
-  File "game/script.rpy", line 86, in execute
-    frame:
-  File "game/script.rpy", line 143, in execute
-    vbox:
-  File "game/script.rpy", line 147, in execute
-    for i in range(1, 5):
-  File "game/script.rpy", line 148, in execute
-    python:
-  File "game/script.rpy", line 151, in <module>
-    act_id = cal_dic[year_id]['SUN'][selected_month_id][week_str]
-KeyError: u'SUN'
+  File "renpy/common/00action_data.rpy", line 79, in get_selected
+    return __get_field(self.object, self.field, self.kind) == self.value
+  File "renpy/common/00action_data.rpy", line 39, in _m1_00action_data__get_field
+    raise NameError("The {} {} does not exist.".format(kind, name))
+NameError: The variable selected_act_id does not exist.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 74, in script call
+  File "game/script.rpy", line 77, in script call
     call test_cal
-  File "game/script.rpy", line 81, in script
+  File "game/script.rpy", line 83, in script
     call screen test_frame
   File "/Applications/renpy-7.4.11-sdk/renpy/ast.py", line 2015, in execute
     self.call("execute")
@@ -52,31 +42,33 @@ Full traceback:
     d.visit_all(callback, seen)
   File "/Applications/renpy-7.4.11-sdk/renpy/display/core.py", line 568, in visit_all
     d.visit_all(callback, seen)
-  File "/Applications/renpy-7.4.11-sdk/renpy/display/screen.py", line 436, in visit_all
+  File "/Applications/renpy-7.4.11-sdk/renpy/display/screen.py", line 441, in visit_all
+    self.child.visit_all(callback, seen=None)
+  File "/Applications/renpy-7.4.11-sdk/renpy/display/core.py", line 568, in visit_all
+    d.visit_all(callback, seen)
+  File "/Applications/renpy-7.4.11-sdk/renpy/display/core.py", line 568, in visit_all
+    d.visit_all(callback, seen)
+  File "/Applications/renpy-7.4.11-sdk/renpy/display/core.py", line 568, in visit_all
+    d.visit_all(callback, seen)
+  File "/Applications/renpy-7.4.11-sdk/renpy/display/core.py", line 568, in visit_all
+    d.visit_all(callback, seen)
+  File "/Applications/renpy-7.4.11-sdk/renpy/display/core.py", line 570, in visit_all
     callback(self)
   File "/Applications/renpy-7.4.11-sdk/renpy/display/core.py", line 3737, in <lambda>
     root_widget.visit_all(lambda i : i.per_interact())
-  File "/Applications/renpy-7.4.11-sdk/renpy/display/screen.py", line 447, in per_interact
-    self.update()
-  File "/Applications/renpy-7.4.11-sdk/renpy/display/screen.py", line 637, in update
-    self.screen.function(**self.scope)
-  File "game/script.rpy", line 85, in execute
-    screen test_frame():
-  File "game/script.rpy", line 85, in execute
-    screen test_frame():
-  File "game/script.rpy", line 86, in execute
-    frame:
-  File "game/script.rpy", line 143, in execute
-    vbox:
-  File "game/script.rpy", line 147, in execute
-    for i in range(1, 5):
-  File "game/script.rpy", line 148, in execute
-    python:
-  File "game/script.rpy", line 151, in <module>
-    act_id = cal_dic[year_id]['SUN'][selected_month_id][week_str]
-KeyError: u'SUN'
+  File "/Applications/renpy-7.4.11-sdk/renpy/display/behavior.py", line 878, in per_interact
+    if self.is_selected():
+  File "/Applications/renpy-7.4.11-sdk/renpy/display/behavior.py", line 866, in is_selected
+    return is_selected(self.action)
+  File "/Applications/renpy-7.4.11-sdk/renpy/display/behavior.py", line 401, in is_selected
+    return action.get_selected()
+  File "renpy/common/00action_data.rpy", line 79, in get_selected
+    return __get_field(self.object, self.field, self.kind) == self.value
+  File "renpy/common/00action_data.rpy", line 39, in _m1_00action_data__get_field
+    raise NameError("The {} {} does not exist.".format(kind, name))
+NameError: The variable selected_act_id does not exist.
 
 Darwin-21.4.0-x86_64-i386-64bit
 Ren'Py 7.4.11.2266
 test 1.0
-Tue Apr  5 13:22:35 2022
+Tue Apr  5 14:36:09 2022
