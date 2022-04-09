@@ -2,10 +2,7 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 50: invalid syntax
-    global year_id = "Y14"
-                    ^
-    
+File "game/script.rpy", line 36: indentation mismatch.
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Tue Apr  5 12:59:37 2022
+Sat Apr  9 12:21:24 2022

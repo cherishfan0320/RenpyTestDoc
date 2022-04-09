@@ -1,74 +1,36 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 77, in script call
-    call test_cal
-  File "game/script.rpy", line 83, in script
-    call screen test_frame
-  File "renpy/common/000statements.rpy", line 569, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-  File "renpy/common/00action_data.rpy", line 79, in get_selected
-    return __get_field(self.object, self.field, self.kind) == self.value
-  File "renpy/common/00action_data.rpy", line 39, in _m1_00action_data__get_field
-    raise NameError("The {} {} does not exist.".format(kind, name))
-NameError: The variable selected_act_id does not exist.
+  File "game/script.rpy", line 3, in script
+    define girl = Character("Girl", callback=speaker("girl"))
+  File "game/script.rpy", line 3, in script
+    define girl = Character("Girl", callback=speaker("girl"))
+  File "game/script.rpy", line 3, in <module>
+    define girl = Character("Girl", callback=speaker("girl"))
+NameError: name 'speaker' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 77, in script call
-    call test_cal
-  File "game/script.rpy", line 83, in script
-    call screen test_frame
-  File "/Applications/renpy-7.4.11-sdk/renpy/ast.py", line 2015, in execute
-    self.call("execute")
-  File "/Applications/renpy-7.4.11-sdk/renpy/ast.py", line 2003, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-  File "/Applications/renpy-7.4.11-sdk/renpy/statements.py", line 278, in call
-    return method(parsed, *args, **kwargs)
-  File "renpy/common/000statements.rpy", line 569, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-  File "/Applications/renpy-7.4.11-sdk/renpy/exports.py", line 3136, in call_screen
-    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
-  File "/Applications/renpy-7.4.11-sdk/renpy/ui.py", line 298, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "/Applications/renpy-7.4.11-sdk/renpy/display/core.py", line 3325, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs)
-  File "/Applications/renpy-7.4.11-sdk/renpy/display/core.py", line 3737, in interact_core
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "/Applications/renpy-7.4.11-sdk/renpy/display/core.py", line 568, in visit_all
-    d.visit_all(callback, seen)
-  File "/Applications/renpy-7.4.11-sdk/renpy/display/core.py", line 568, in visit_all
-    d.visit_all(callback, seen)
-  File "/Applications/renpy-7.4.11-sdk/renpy/display/core.py", line 568, in visit_all
-    d.visit_all(callback, seen)
-  File "/Applications/renpy-7.4.11-sdk/renpy/display/screen.py", line 441, in visit_all
-    self.child.visit_all(callback, seen=None)
-  File "/Applications/renpy-7.4.11-sdk/renpy/display/core.py", line 568, in visit_all
-    d.visit_all(callback, seen)
-  File "/Applications/renpy-7.4.11-sdk/renpy/display/core.py", line 568, in visit_all
-    d.visit_all(callback, seen)
-  File "/Applications/renpy-7.4.11-sdk/renpy/display/core.py", line 568, in visit_all
-    d.visit_all(callback, seen)
-  File "/Applications/renpy-7.4.11-sdk/renpy/display/core.py", line 568, in visit_all
-    d.visit_all(callback, seen)
-  File "/Applications/renpy-7.4.11-sdk/renpy/display/core.py", line 570, in visit_all
-    callback(self)
-  File "/Applications/renpy-7.4.11-sdk/renpy/display/core.py", line 3737, in <lambda>
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "/Applications/renpy-7.4.11-sdk/renpy/display/behavior.py", line 878, in per_interact
-    if self.is_selected():
-  File "/Applications/renpy-7.4.11-sdk/renpy/display/behavior.py", line 866, in is_selected
-    return is_selected(self.action)
-  File "/Applications/renpy-7.4.11-sdk/renpy/display/behavior.py", line 401, in is_selected
-    return action.get_selected()
-  File "renpy/common/00action_data.rpy", line 79, in get_selected
-    return __get_field(self.object, self.field, self.kind) == self.value
-  File "renpy/common/00action_data.rpy", line 39, in _m1_00action_data__get_field
-    raise NameError("The {} {} does not exist.".format(kind, name))
-NameError: The variable selected_act_id does not exist.
+  File "/Applications/renpy-7.4.11-sdk/renpy/bootstrap.py", line 331, in bootstrap
+    renpy.main.main()
+  File "/Applications/renpy-7.4.11-sdk/renpy/main.py", line 560, in main
+    renpy.game.context().run(node)
+  File "game/script.rpy", line 3, in script
+    define girl = Character("Girl", callback=speaker("girl"))
+  File "game/script.rpy", line 3, in script
+    define girl = Character("Girl", callback=speaker("girl"))
+  File "/Applications/renpy-7.4.11-sdk/renpy/ast.py", line 2213, in execute
+    self.set()
+  File "/Applications/renpy-7.4.11-sdk/renpy/ast.py", line 2224, in set
+    value = renpy.python.py_eval_bytecode(self.code.bytecode)
+  File "/Applications/renpy-7.4.11-sdk/renpy/python.py", line 2269, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 3, in <module>
+    define girl = Character("Girl", callback=speaker("girl"))
+NameError: name 'speaker' is not defined
 
 Darwin-21.4.0-x86_64-i386-64bit
 Ren'Py 7.4.11.2266
-test 1.0
-Tue Apr  5 14:36:09 2022
+TestDoc1080 1.0
+Sat Apr  9 12:21:05 2022
